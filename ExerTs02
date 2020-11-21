@@ -9,7 +9,7 @@ f.	Make sure you use proper label names and include relevant and appropriate com
 
 .data
    welcomeMsg:.asciiz " Welcome to the letter game  : \n"
-   inputMsg:.asciiz " Enter a word of 6 letters that contains both uppercase and lowercase letters (eg: THiaNa) :\n "
+   inputMsg:.asciiz " Enter a word of 6 letters that contains both uppercase and lowercase letters (eg: AbCdE) :\n "
    word: .space 7
    manipulatedWord: .space 7
    newLine: .asciiz "\n"
