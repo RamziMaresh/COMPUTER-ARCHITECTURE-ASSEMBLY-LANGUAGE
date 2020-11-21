@@ -1,0 +1,60 @@
+
+a.	Prompt a welcoming message to the user (“Welcome to the letter game”) 
+b.	Prompt a message to the user to enter a word. The word must be of exactly 5 characters of lower case letters only. (e.g. water)			
+c.	Manipulate the word by changing the 5 characters to be all upper case letters. (e.g. WATER)	 							
+d.	Prompt the user with the manipulated word. (e.g. WATER)		
+e.	Optimise the code to use procedures whenever possible (at least 1 procedure). 
+f.	Make sure you use proper label names and include relevant and appropriate comments. 								
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+.data
+welcomMess:.asciiz " ** Welcome to the letter game ** \n"
+mssgInput:.asciiz " Enter a word must be in lower caes '5 characters  only': "
+mssgOutput:.asciiz " \n The Upper case is: "
+input: .space 6
+newline: .asciiz "\n"
+.text
+main:
+
+   li $v0, 4   
+   la $a0,welcomMess   # display 
+   syscall
+   
+   li $v0, 4   
+   la $a0,mssgInput   # display 
+   syscall
+   
+  jal getInput  # procedure to get input 'function'
+
+   li $v0, 4   
+   la $a0,mssgOutput   # display 
+   syscall
+   
+
+loop:
+    lb $t1, input($t0)
+    beq $t1, 0, exit
+    blt $t1, 'a', case
+    bgt $t1, 'z', case
+    sub $t1, $t1, 32
+    sb $t1, input($t0)
+
+case: 
+    addi $t0, $t0, 1
+    j loop
+
+exit:
+    li $v0, 4     #Dispaly text
+    la $a0, input
+    syscall 
+    
+    li $v0, 10 # End of program
+    syscall
+    
+    getInput:  # after i calll function so get the input frorm user
+    li $v0, 8  #get text from user
+    li $a1, 6  #the length 
+    la $a0, input  
+    syscall
+    jr $ra  #return 
