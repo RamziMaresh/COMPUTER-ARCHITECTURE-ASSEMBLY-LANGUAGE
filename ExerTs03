@@ -1,0 +1,6 @@
+a.	Prompt a welcoming message to the user (“Welcome to the letter game”) 
+b.	Prompt a message to the user to enter a word. The word must be of exactly 6 characters. 
+c.	Manipulate the word by changing the 6 characters. If the input is an uppercase, change it to ‘1’, for lowercase change it to ‘2’. (e.g. 122122) 												(3 marks)
+d.	Prompt the user with the manipulated word. (e.g. 122122)	
+e.	Optimise the code to use procedures whenever possible (at least 1 procedure). 
+f.	Make sure you use proper label names and include relevant and appropriate comments. 
